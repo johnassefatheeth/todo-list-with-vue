@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # to-do-app
 
 This template should help get you started developing with Vue 3 in Vite.
@@ -27,3 +28,10 @@ npm run dev
 ```sh
 npm run build
 ```
+=======
+# todo-list-with-vue
+
+
+this repo contains a todo list web app made with vue.js
+it stores the todo activities and the user name in localstorage so the data isn't lost even if the page is refreshed
+>>>>>>> e8f4bece8c9669fb22ddc0e647ac1fdf0db593b6
