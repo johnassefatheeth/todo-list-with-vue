@@ -35,8 +35,29 @@ onMounted(()=>{
 
     <form @submit.prevent="addtodo">
       <h4>what do you want on your list?</h4>
-      <input type="text" placeholder="e.g wash cloths" v-model="input_content">
-      {{ input_content }}
+      
+      <input type="text" 
+        placeholder="e.g wash cloths" 
+        v-model="input_content">
+      <h4>what catagory does it belong to</h4>
+      <div class="options">
+        <label>
+          <input type="radio" 
+          name="category"
+          value="business"
+          v-model="input_category">
+          <span class="bubble business"></span>
+          <div>Business</div>
+        </label>
+        <label>
+          <input type="radio" 
+          name="category"
+          value="personal"
+          v-model="input_category">
+          <span class="bubble personal"></span>
+          <div>personal</div>
+        </label>
+      </div>
     </form>
   </section>
 </main>
