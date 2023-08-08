@@ -15,12 +15,12 @@ const todos_asc = computed(()=> todos.value.sort((a,b)=>{
 </script>
 
 <template>
-<!-- <main class="app">
+<main class="app">
   <section class="greeting">
     <h2 class="title">
       hello there, <input type="text" placeholder="your name here" v-model="name">
     </h2>
   </section>
-</main> -->
+</main>
 </template>
 
