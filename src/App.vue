@@ -11,8 +11,8 @@ const todos_asc = computed(()=> todos.value.sort((a,b)=>{
   return b.createdAt - a.createdAt
 }))
 
-const deletetodo = () =>{
-  todos.value = todos.value.filter((t) => t !== todo)
+const deletetodo = (todo) =>{
+  todos.value = todos.value.filter(t => t !== todo)
 }
 
 const addtodo = () => {
@@ -99,7 +99,7 @@ onMounted(()=>{
         </div>
 
         <div class="actions">
-          <button class="delete" @click="deletetodo">delete</button>
+          <button class="delete" @click="deletetodo(todo)">delete</button>
         </div>
       
       </div>
