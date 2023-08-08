@@ -8,30 +8,37 @@ const input_content= ref('')
 const input_category = ref(null)
 
 const todos_asc = computed(()=> todos.value.sort((a,b)=>{
-  return b.createdAt = a.createdAt
+  return b.createdAt - a.createdAt
 }))
 
-const addtodo = ()=> {
-  if(input_content.value.trim() === '' || input_category.value === null){
+const addtodo = () => {
+  if (input_content.value.trim() === '' || input_category.value === null) {
     return
   }
-
-  todos.value.push({
+  const newTodo = {
     content: input_content.value,
-    category:input_category,
-    done:false,
-    createdAt:new Date.getTime()
-
-  })
+    category: input_category.value,
+    done: false,
+    createdAt: new Date().getTime()
+  }
+  todos.value.push(newTodo)
+  localStorage.setItem('todos', JSON.stringify(todos.value))
 }
+
+watch(todos ,(newTodo)=>{
+  localStorage.setItem('todos',JSON.stringify(newTodo))
+})
 
 watch(name ,(newName)=>{
   localStorage.setItem('name',newName)
-})
+},{deep:true})
 
 onMounted(()=>{
   name.value= localStorage.getItem('name') || ''
+  const storedTodos = JSON.parse(localStorage.getItem('todos'))
+  todos.value = Array.isArray(storedTodos) ? storedTodos : []
 })
+
 
 </script>
 
@@ -73,6 +80,7 @@ onMounted(()=>{
       <input type="submit" value="add todo">
     </form>
   </section>
+  {{ todos_asc }}
 </main>
 </template>
 
