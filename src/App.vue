@@ -11,6 +11,8 @@ const todos_asc = computed(()=> todos.value.sort((a,b)=>{
   return b.createdAt = a.createdAt
 }))
 
+const addtodo = ()=> {}
+
 watch(name ,(newName)=>{
   localStorage.setItem('name',newName)
 })
@@ -27,6 +29,15 @@ onMounted(()=>{
     <h2 class="title">
       hello there, <input type="text" placeholder="your name here" v-model="name">
     </h2>
+  </section>
+  <section class="create-todo">
+    <h3>create a ToDo</h3>
+
+    <form @submit.prevent="addtodo">
+      <h4>what do you want on your list?</h4>
+      <input type="text" placeholder="e.g wash cloths" v-model="input_content">
+      {{ input_content }}
+    </form>
   </section>
 </main>
 </template>
