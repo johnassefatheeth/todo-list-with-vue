@@ -11,6 +11,13 @@ const todos_asc = computed(()=> todos.value.sort((a,b)=>{
   return b.createdAt = a.createdAt
 }))
 
+watch(name ,(newName)=>{
+  localStorage.setItem('name',newName)
+})
+
+onMounted(()=>{
+  name.value= localStorage.getItem('name') || ''
+})
 
 </script>
 
