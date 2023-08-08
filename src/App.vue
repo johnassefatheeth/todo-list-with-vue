@@ -11,7 +11,19 @@ const todos_asc = computed(()=> todos.value.sort((a,b)=>{
   return b.createdAt = a.createdAt
 }))
 
-const addtodo = ()=> {}
+const addtodo = ()=> {
+  if(input_content.value.trim() === '' || input_category.value === null){
+    return
+  }
+
+  todos.value.push({
+    content: input_content.value,
+    category:input_category,
+    done:false,
+    createdAt:new Date.getTime()
+
+  })
+}
 
 watch(name ,(newName)=>{
   localStorage.setItem('name',newName)
@@ -58,6 +70,7 @@ onMounted(()=>{
           <div>personal</div>
         </label>
       </div>
+      <input type="submit" value="add todo">
     </form>
   </section>
 </main>
