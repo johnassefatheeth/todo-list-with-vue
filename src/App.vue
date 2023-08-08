@@ -54,7 +54,7 @@ onMounted(()=>{
     </h2>
   </section>
   <section class="create-todo">
-    <h3>create a ToDo</h3>
+    <h3>Create a ToDo</h3>
 
     <form @submit.prevent="addtodo">
       <h4>what do you want on your list?</h4>
@@ -78,14 +78,14 @@ onMounted(()=>{
           value="personal"
           v-model="input_category">
           <span class="bubble personal"></span>
-          <div>personal</div>
+          <div>Personal</div>
         </label>
       </div>
       <input type="submit" value="add todo">
     </form>
   </section>
   <section class="todo-list">
-    <h3>TODO LIST</h3>
+    <h3>YOUR TODO LIST ARE AS FOLLOWS</h3>
     <div class="list">
       <div v-for="todo in todos_asc" :class="`todo-item ${todo.done && 'done'}`">      
       
