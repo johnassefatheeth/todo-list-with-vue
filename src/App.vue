@@ -11,6 +11,10 @@ const todos_asc = computed(()=> todos.value.sort((a,b)=>{
   return b.createdAt - a.createdAt
 }))
 
+const deletetodo = () =>{
+  todos.value = todos.value.filter((t) => t !== todo)
+}
+
 const addtodo = () => {
   if (input_content.value.trim() === '' || input_category.value === null) {
     return
@@ -89,6 +93,14 @@ onMounted(()=>{
           <input type="checkbox" v-model="todo.done">
           <span :class="`bubble ${todo.category=='business'?'business':'personal'}`"></span>
         </label>
+
+        <div class="todo-content">
+          <input type="text" v-model="todo.content">
+        </div>
+
+        <div class="actions">
+          <button class="delete" @click="deletetodo">delete</button>
+        </div>
       
       </div>
 
